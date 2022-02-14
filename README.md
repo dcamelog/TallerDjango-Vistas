@@ -19,3 +19,5 @@ Example:
 pipenv run python manage.py makemigrations 
 ```
 ![image](https://user-images.githubusercontent.com/69636867/153800094-b979cbd3-f978-4948-9d45-fcf7312736c8.png)
+![image](https://user-images.githubusercontent.com/69636867/153800822-b6e1bee7-a72c-49d3-8119-88d5b108754c.png)
+
