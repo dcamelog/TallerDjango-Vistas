@@ -24,6 +24,7 @@ def variables_view(request):
 
 @csrf_exempt
 def variable_view(request, pk):
+    
     if request.method == 'GET':
         variable_dto = vl.get_variable(pk)
         variable = serializers.serialize('json', [variable_dto,])
