@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @csrf_exempt
-def measurements_view(request):
+def measurements_view(request, pk):
     if request.method =='GET':
         id=request.GET.get("id",None)
         if id:    
@@ -23,7 +23,14 @@ def measurements_view(request):
         variable_dto = ml.create_measurement(json.loads(request.body))
         variable = serializers.serialize('json', [variable_dto,])
         return HttpResponse(variable, 'application/json')
-            
+    if request.method == 'PUT':
+        measurement_dto = ml.update_measurement(pk,json.loads(request.body))
+        measurement = serializers.serialize('jason', [measurement_dto,])
+        return HttpResponse(measurement, 'application/jason')
+    if request.method == 'DELETE':
+        measurement_dto = ml.delete_measurement(pk,json.loads(request.body))
+        measurement = serializers.serialize('json', [measurement_dto,])
+        return HttpResponse(measurement, 'application/json')
         
         
     
